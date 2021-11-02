@@ -20,12 +20,29 @@ let weather = {
         document.querySelector(".temperature").innerText = temp + "°F";
         document.querySelector(".humidity").innerText = "Humidity " + humidity + "%";
         document.querySelector(".wind").innerText = "Wind Speed " + speed + "mp/h";
-        document.querySelector(".weather").classList.remove("loading")
     },
     search: function () {
         this.fetchWeather (document.querySelector(".searchbar").value);
     }
 };
+
+// function saveData (text) {
+//     var text = $(this).parent().parent().siblings(".td-class").children(".input-group").children("input").val()
+//     var time = $(this).parent().parent().parent().data("time")
+//     console.log(text)
+//     localStorage.setItem(time, text)
+//    }
+//    $(".btn").each(function (){
+//      $(this).on("click", saveData)
+//    })
+   
+//    function printData (text) {
+//      var projectDisplayEl = $('<p>').addClass('project-display').text(task);
+   
+//      projectDisplayEl.append(text)
+//      console.log("hi")
+     
+//     }
 
 document.querySelector(".search-button").addEventListener("click", function (){weather.search();})
 
