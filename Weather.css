@@ -47,4 +47,8 @@ button:hover {
     width: 600px;
     margin: 10px;
 }
+
+.description {
+    text-transform: capitalize;
+}
   

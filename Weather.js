@@ -20,7 +20,16 @@ let weather = {
         document.querySelector(".temperature").innerText = temp + "°F";
         document.querySelector(".humidity").innerText = "Humidity " + humidity + "%";
         document.querySelector(".wind").innerText = "Wind Speed " + speed + "mp/h";
+    },
+    search: function () {
+        this.fetchWeather (document.querySelector(".searchbar").value);
     }
-}
+};
+
+document
+.querySelector(".search-button")
+.addEventListener("click", function (){
+    weather.search();
+})
 
 
