@@ -1,0 +1,13 @@
+body {
+    display: flex;
+    background: chartreuse;
+}
+
+.card {
+    background-color: coral;
+    padding: 15px;
+    border-radius: 15px;
+    max-width: 400px;
+    margin: 10px;
+}
+    
