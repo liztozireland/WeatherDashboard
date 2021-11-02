@@ -1,6 +1,7 @@
 body {
     display: flex;
     background: chartreuse;
+    font-family: 'Bebas Neue', cursive;
 }
 
 .card {
