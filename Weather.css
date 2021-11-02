@@ -3,6 +3,9 @@ body {
     background: chartreuse;
     font-family: 'Bebas Neue', cursive;
     font-size: 120%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .card {
@@ -36,3 +39,12 @@ button:hover {
     border-radius: 20px;
     font-size: 115%;
 }
+
+.display-card {
+    background-color: fuchsia;
+    padding: 15px;
+    border-radius: 15px;
+    width: 600px;
+    margin: 10px;
+}
+  
