@@ -2,6 +2,7 @@ body {
     display: flex;
     background: chartreuse;
     font-family: 'Bebas Neue', cursive;
+    font-size: 120%;
 }
 
 .card {
@@ -11,4 +12,27 @@ body {
     max-width: 400px;
     margin: 10px;
 }
-    
+  
+.searchbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+button {
+    margin: 0.5em;
+    border-radius: 20px;
+    height: 2em;
+}
+
+button:hover {
+    background: blueviolet;
+    cursor: pointer;
+}
+
+.searchbar {
+    background-color: cornflowerblue;
+    padding: 5px;
+    border-radius: 20px;
+    font-size: 115%;
+}
