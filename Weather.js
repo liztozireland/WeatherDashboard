@@ -16,6 +16,10 @@ let weather = {
         console.log(name, icon, description, temp, humidity,speed)
         document.querySelector(".city").innerText = "Weather in " + name;
         document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
+        document.querySelector(".description").innerText = description;
+        document.querySelector(".temperature").innerText = temp + "°F";
+        document.querySelector(".humidity").innerText = "Humidity " + humidity + "%";
+        document.querySelector(".wind").innerText = "Wind Speed " + speed + "mp/h";
     }
 }
 
