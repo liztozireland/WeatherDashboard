@@ -51,4 +51,8 @@ button:hover {
 .description {
     text-transform: capitalize;
 }
+
+.weather.loading {
+    visibility: hidden;
+}
   
