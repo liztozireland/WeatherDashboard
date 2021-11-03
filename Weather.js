@@ -1,3 +1,5 @@
+
+
 let weather = {
     apiKey: "83fe1b09475078af6c078ccf5a2358a5",
     fetchWeather: function (city) {
@@ -20,36 +22,39 @@ let weather = {
         document.querySelector(".temperature").innerText = temp + "°F";
         document.querySelector(".humidity").innerText = "Humidity " + humidity + "%";
         document.querySelector(".wind").innerText = "Wind Speed " + speed + "mp/h";
+        this.fetchForecast(data.coord.lat,data.coord.lon)
+    },
+    fetchForecast: function (lat,lon) {
+        console.log("fetchForecast")
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${this.apiKey}`)
+        .then((response) => response.json())
+        .then((data) => this.displayForecast(data))
+    },
+    displayForecast: function (data){
+        console.log(data)
+        for (let i=1; i<6; i++) {
+            let day = data.daily[i]
+        
+        document.querySelector("#fiveDay").innerHTML+=`
+        <div class="display-card2">
+            <div class="Weater">
+                <h2 class="city">Weather in the city</h2>
+                <h1 class="temperature">${day.temp.day}°F</h1>
+                <img src="https://openweathermap.org/img/wn/04d@2x.png" alt="Weather Icon" class="icon">
+    
+                <div class="description"></div>
+                <div class="humidity"></div>
+                <div class="wind"></div>
+                <div class="save-button"></div>
+            </div>`
+        }
     },
     search: function () {
         this.fetchWeather (document.querySelector(".searchbar").value);
     }
-};
+}; 
 
-// function saveData (text) {
-//     var text = $(this).parent().parent().siblings(".td-class").children(".input-group").children("input").val()
-//     var time = $(this).parent().parent().parent().data("time")
-//     console.log(text)
-//     localStorage.setItem(time, text)
-//    }
-//    $(".btn").each(function (){
-//      $(this).on("click", saveData)
-//    })
-   
-//    function printData (text) {
-//      var projectDisplayEl = $('<p>').addClass('project-display').text(task);
-   
-//      projectDisplayEl.append(text)
-//      console.log("hi")
-     
-//     }
 
 document.querySelector(".search-button").addEventListener("click", function (){weather.search();})
-
-// document.querySelector(".search-button").addEventListener("keyup", function(event) {
-//     if (event.key === "Enter") {
-//         weather.search();
-//     }
-// })
 
 weather.fetchWeather("Los Angeles");

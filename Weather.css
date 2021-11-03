@@ -52,4 +52,12 @@ button:hover {
     text-transform: capitalize;
 }
 
+.display-card2 {
+    background-color: purple;
+    padding: 15px;
+    border-radius: 15px;
+    width: 600px;
+    margin: 10px;
+    display: inline-block;
+}
   
