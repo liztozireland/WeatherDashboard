@@ -44,6 +44,7 @@ let weather = {
     
                 <div class="description">Weather Description: ${day.weather[0].description}</div>
                 <div class="humidity">Humididity: ${day.humidity}%</div>
+                <div class="Wind">Wind Speed: ${day.wind_speed}mp/h</div>
                 <div style="background-color:${day.uvi <3 ? "success" : "danger"}" class="wind ">UVI Index: ${day.uvi}</div>
                 <div class="save-button"></div>
             </div>`
