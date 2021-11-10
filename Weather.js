@@ -17,7 +17,7 @@ let weather = {
         console.log(name, icon, description, temp, humidity,speed)
         document.querySelector(".city").innerText = "Weather in " + name;
         document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
-        document.querySelector(".description").innerText = description;
+        document.querySelector(".description").innerText ="Weather description: " + description;
         document.querySelector(".temperature").innerText = temp + "°F";
         document.querySelector(".humidity").innerText = "Humidity " + humidity + "%";
         document.querySelector(".wind").innerText = "Wind Speed " + speed + "mp/h";
@@ -42,9 +42,9 @@ let weather = {
                 <h1 class="temperature">${day.temp.day}°F</h1>
                 <img src="https://openweathermap.org/img/wn/04d@2x.png" alt="Weather Icon" class="icon">
     
-                <div class="description">${day.weather[0].description}</div>
-                <div class="humidity">${day.feels_like.day}</div>
-                <div style="background-color:${day.uvi <3 ? "success" : "danger"}" class="wind ">${day.uvi}</div>
+                <div class="description">Weather Description: ${day.weather[0].description}</div>
+                <div class="humidity">Humididity: ${day.humidity}%</div>
+                <div style="background-color:${day.uvi <3 ? "success" : "danger"}" class="wind ">UVI Index: ${day.uvi}</div>
                 <div class="save-button"></div>
             </div>`
         }
