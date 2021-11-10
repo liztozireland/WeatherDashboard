@@ -3,7 +3,7 @@ body {
     background: chartreuse;
     font-family: 'Bebas Neue', cursive;
     font-size: 120%;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -12,8 +12,8 @@ body {
     background-color: coral;
     padding: 15px;
     border-radius: 15px;
-    max-width: 400px;
-    margin: 10px;
+    max-width: 30%;
+    margin: 50px;
 }
   
 .searchbox {
@@ -44,8 +44,8 @@ button:hover {
     background-color: fuchsia;
     padding: 15px;
     border-radius: 15px;
-    width: 600px;
-    margin: 10px;
+    width: 60%;
+    margin: 50px;
 }
 
 .description {
@@ -60,4 +60,28 @@ button:hover {
     margin: 10px;
     display: inline-block;
 }
-  
+
+
+main {
+    display: flex;
+    background: violet;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 120%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 50px;
+}
+
+section
+{
+    display: flex;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 120%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+ul {
+    list-style: none;
+}

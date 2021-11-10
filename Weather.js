@@ -1,5 +1,3 @@
-
-
 let weather = {
     apiKey: "83fe1b09475078af6c078ccf5a2358a5",
     fetchWeather: function (city) {
@@ -12,6 +10,7 @@ let weather = {
     },
     displayWeather: function(data) {
         const {name} = data;
+        this.name = name;
         const {icon,description} = data.weather[0];
         const {temp, humidity} = data.main;
         const {speed} = data.wind;
@@ -32,25 +31,46 @@ let weather = {
     },
     displayForecast: function (data){
         console.log(data)
+        document.querySelector("#fiveDay").innerHTML=""
         for (let i=1; i<6; i++) {
             let day = data.daily[i]
         
         document.querySelector("#fiveDay").innerHTML+=`
         <div class="display-card2">
             <div class="Weater">
-                <h2 class="city">Weather in the city</h2>
+                <h2 class="city">Weather in ${this.name}</h2>
                 <h1 class="temperature">${day.temp.day}°F</h1>
                 <img src="https://openweathermap.org/img/wn/04d@2x.png" alt="Weather Icon" class="icon">
     
-                <div class="description"></div>
-                <div class="humidity"></div>
-                <div class="wind"></div>
+                <div class="description">${day.weather[0].description}</div>
+                <div class="humidity">${day.feels_like.day}</div>
+                <div style="background-color:${day.uvi <3 ? "success" : "danger"}" class="wind ">${day.uvi}</div>
                 <div class="save-button"></div>
             </div>`
         }
     },
     search: function () {
+        this.saveToLocal(document.querySelector(".searchbar").value);
         this.fetchWeather (document.querySelector(".searchbar").value);
+    },
+    saveToLocal: function (city) {
+       let cities = JSON.parse(localStorage.getItem("cities")) || [];
+       cities.push(city)
+       localStorage.setItem("cities", JSON.stringify(cities))
+       this.getLocalStorage()
+    },
+    getLocalStorage: function () {
+        let cities = JSON.parse(localStorage.getItem("cities")) || [];
+        let historyEl = document.querySelector(".searchHistory")
+        historyEl.innerHTML=""
+        cities.forEach(city => {
+            let btn = document.createElement("button")
+            btn.textContent = city;
+            btn.onclick = (event) => {
+              this.fetchWeather(event.target.textContent)
+            }
+            historyEl.appendChild(btn)
+        })
     }
 }; 
 
@@ -58,3 +78,4 @@ let weather = {
 document.querySelector(".search-button").addEventListener("click", function (){weather.search();})
 
 weather.fetchWeather("Los Angeles");
+weather.getLocalStorage();
